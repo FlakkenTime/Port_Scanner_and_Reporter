@@ -5,7 +5,7 @@ require 'pp'
 unless ARGV.count.equal? 2
   pp '2 arguments required!'
   pp 'First your massscan configuration file'
-  pp 'Second your scanhub configuration file'
+  pp 'Second your scanhub yml file'
   pp 'See README for more info'
   exit
 end
