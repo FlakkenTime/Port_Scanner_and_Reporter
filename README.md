@@ -45,6 +45,11 @@ massscan requires access that may need root privileges. Here's how I run it:
 `sudo ruby scan_and_report.rb ~/mass_commands ~/scanhub.yml`
 
 # How to search results
+NOTE: This returns world wide results currently. Despite spending the last hour
+playing with this and looking online I can find no way to limit api requests
+to your own scanhub scans. However using the website you can. This would
+require a separate tool.
+
 Requires `shodan` gem be installed and the above scanhub.xml file.
 `ruby shodan_lookups.rb  ~/scanhub.yml`
 
@@ -53,3 +58,23 @@ you will get all results where a port response included an http header.
 
 Example 2. With `search_type: 'host'` and `query: '127.0.0.1'`. If you run the above command
 you will get all info related to this host.
+
+# Ideas on how this could be used and improvements for later
+1. Need to update the API to only request personal scanhub results as soon
+as this is available.
+
+2. Storing results in a small personal database in the form:
+`host_ip`, `open_port1, open_port2, etc`
+We could implement a daily checker that reports if anyi host has new ports
+that have become active. This could be the sign of someone having access to
+a system.
+
+3. Can use the port searching in GUI (api later) to look for known protocols running
+on unusual ports. During one world wide search I found a number of HTTP servers
+on non standard ports such as port 1900. This may be a sign of someone running
+an extra service on their system.. even if they don't know they're doing it.
+
+4. For business scanning can also use port searching to verify no internal systems are
+available externally. For example may search for ports such as 22 (SSH), 1434 (MS-SQL0),
+3306 (MySQL), etc. These kinds of services should not be available to the
+outside internet.
