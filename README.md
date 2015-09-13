@@ -1,5 +1,6 @@
 # Port_Scanner_and_Reporter
-This uses massscan to scan an ip range and then uploads the results to scanhub
+This uses massscan to scan an ip range and then uploads the results
+to scanhub
 
 # Requiremens
 1. massscan is installed. You can clone it form here and build it yourself:
@@ -18,10 +19,14 @@ output-filename = scan.xml
 ports = 0-100
 range = 127.0.0.1/24
 
-# scanhub configuration file
-This information can be found scanhubs upload page. The info is used to upload
-the scan results
+# scanhub configuration yml file
+This information can be found scanhubs upload page. The info is used
+to upload the scan results
 
-Example:
-file_name = scan.xml
-key = 1234567890AaBbCcDdEeFfGgHhIiJjKk
+Example scanhub.yml:
+file_name: 'scan.xml'
+scan_key: '1234567890AaBbCcDdEeFfGgHhIiJjKk'
+
+# How to run it
+massscan requires access that may need root privileges. Here's how I run it:
+`sudo ruby scan_and_report.rb ~/mass_commands ~/scanhub.yml`
