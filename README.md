@@ -13,19 +13,23 @@ This should be in the format as described on the massscan github page:
 https://github.com/robertdavidgraham/masscan
 
 Example:
+```
 rate = 10000
 output-format = xml
 output-filename = scan.xml
 ports = 0-100
 range = 127.0.0.1/24
+```
 
 # scanhub configuration yml file
 This information can be found scanhubs upload page. The info is used
 to upload the scan results
 
 Example scanhub.yml:
+```
 file_name: 'scan.xml'
 scan_key: '1234567890AaBbCcDdEeFfGgHhIiJjKk'
+```
 
 # How to run it
 massscan requires access that may need root privileges. Here's how I run it:
