@@ -78,3 +78,6 @@ an extra service on their system.. even if they don't know they're doing it.
 available externally. For example may search for ports such as 22 (SSH), 1434 (MS-SQL0),
 3306 (MySQL), etc. These kinds of services should not be available to the
 outside internet.
+
+5. Audit all ports and systems. Services not relevant to the system should not be open.
+Example a web server should not have port 22 and 25 open.
