@@ -35,7 +35,6 @@ end
 
 # do the query
 api = Shodan::WebAPI.new(scan_key)
-#api = Shodan::Shodan.new(scan_key)
 
 begin
   results = api.host(query) if search_type.eql? 'host'
@@ -43,6 +42,6 @@ begin
   pp "Found: #{results.count} results"
   pp results
 rescue => e
-  pp "ERROR"
+  pp '[ERROR] Shodan API Request failed:'
   pp e
 end

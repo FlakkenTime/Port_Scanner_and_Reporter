@@ -15,7 +15,7 @@ begin
   config = YAML.load_file(ARGV[1])
   file_name = config['file_name']
   scan_key = config['scan_key']
-  if file_name.nil? or scan_key.nil?
+  if file_name.nil? || scan_key.nil?
     pp "[ERROR] file_name not found in #{ARGV[1]} yml file" if file_name.nil?
     pp "[ERROR] scan_key not found in #{ARGV[1]} yml file" if scan_key.nil?
     exit
@@ -30,7 +30,8 @@ end
 cmd = "massscan -c #{ARGV[0]}"
 cmd_resp = `#{cmd}`
 
-unless cmd_resp.eql? 0 or cmd_resp.eql? ''
+pp cmd_resp
+unless cmd_resp.empty? || cmd_resp.eql?(0)
   pp '[ERROR] massscan returned error cannot continue'
   pp cmd_resp
   exit
